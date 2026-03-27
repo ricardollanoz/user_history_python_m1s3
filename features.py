@@ -21,11 +21,34 @@ def show_inventory(inventory):
                 print(f"Quantity: {detail['quantity']}\n")
 
 def search_product(inventory):
-    product_namee = input("Enter the product name: ")
+    
+    search_name = input("Enter the product name: ")
+    if not inventory:
+            print("Inventory is empty")
     for name in inventory:
-        if name['name'] == product_namee :
+        if name['name'] == search_name :
             print(f"Producto: {name['name']}")
             print(f"Price {name['price']}")
             print(f"Quantity: {name['quantity']}\n")
-    
-    print("Product unknown")
+        
+        else:
+            print("Unknown product")
+
+def update_product(inventory):
+      new_price = None
+      new_quantity= None
+      update_name = input("Enter the product name: ")
+      for update in inventory:
+            if update['name'] == update_name:
+                new_price = float(input("Ingrese nuevo precio: "))
+                new_quantity = int(input("Ingrese nueva cantidad: "))
+                update['price'] = new_price
+                update['quantity'] = new_quantity
+
+                print(f"Producto: {update['name']}")
+                print(f"Price {update['price']}")
+                print(f"Quantity: {update['quantity']}\n")
+                print("Product recorded successfully ")
+
+                                    
+      

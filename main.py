@@ -1,4 +1,4 @@
-from features import add_product, show_inventory, search_product
+from features import add_product, show_inventory, search_product, update_product
 #List to store dictionaries
 inventory=[]
 
@@ -17,7 +17,7 @@ while validate:
     print("[8] Load CSV")
     print("[9] Exit")
     option = int(input("Select the option to enter: ")) #While loop to repeat menu options once the user finishes some option
-    if option == 1:
+    if option == 1: #Add product
         status = "yes"
         while status == "yes": # while loop to add product if the user enters "yes" again
             
@@ -28,13 +28,19 @@ while validate:
                 while status not in["yes", "no"]: 
                     print("ERROR! Only enter yes/no to continue")
                     status = input("Do you want to register another product? (yes/no): ")
-    elif option == 2:
+    
+    elif option == 2: #Show inventory
         if not inventory:
             print("\nInventory is empty\n")
             
         else:
             show_inventory(inventory)
-    elif option == 3:
+    
+    elif option == 3: #Search product 
          search_product(inventory)
-         
 
+    elif option == 4: #Update product
+        update_product(inventory)
+    
+    elif option == 5: #Delete product
+         
